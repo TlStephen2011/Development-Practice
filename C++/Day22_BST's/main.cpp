@@ -45,7 +45,8 @@ class Solution
 
     int getHeight(Node *root)
     {
-        }
+        //I DONT KNOW WHAT TO DO OVER HERE!!!!
+    }
 };
 
 int main()
