@@ -1,0 +1,31 @@
+{
+    "[cpp]": {
+        "editor.quickSuggestions": false
+    },
+    "[c]": {
+        "editor.quickSuggestions": false
+    },
+    "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 1,
+    "workbench.colorTheme": "1337",
+    "workbench.iconTheme": "material-icon-theme",
+    "files.associations": {
+        "*.ps1": "powershell",
+        "*.psm1": "powershell",
+        "*.psd1": "powershell"
+    },
+    "files.autoSave": "onFocusChange",
+    "editor.wordWrap": "on",
+    "code-runner.clearPreviousOutput": true,
+    "code-runner.saveFileBeforeRun": true,
+    "code-runner.runInTerminal": true,
+    "code-runner.preserveFocus": false,
+    "terminal.integrated.rightClickCopyPaste": true,
+    "terminal.integrated.confirmOnExit": true,
+    "terminal.integrated.fontSize": 10,
+    "terminal.integrated.cursorStyle": "underline",
+    "editor.formatOnSave": true,
+    "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
+    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+    "javascript.format.placeOpenBraceOnNewLineForFunctions": false
+}
