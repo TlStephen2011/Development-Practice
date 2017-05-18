@@ -22,7 +22,7 @@ int main()
         bool isPrime = true;
         if (data[i] != 1)
         {
-            for (int j = 2; j < data[i]; j++)
+            for (int j = 2; j <= sqrt(data[i]); j++)
             {
                 if (data[i] % j == 0)
                 {
