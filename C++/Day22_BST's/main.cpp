@@ -45,7 +45,11 @@ class Solution
 
     int getHeight(Node *root)
     {
-        //I DONT KNOW WHAT TO DO OVER HERE!!!!
+        if (!root)
+        {
+            return -1;
+        }
+        return max(getHeight(root->left), getHeight(root->right)) + 1;
     }
 };
 
