@@ -24,6 +24,8 @@ class TestCase
         for (int i = 0; i < n; i++)
         {
             int r = rand() % 20 - 10;
+          //Could test isZero,isPos, isNeg here---!!
+          
             times.push_back(r);
         }
 
