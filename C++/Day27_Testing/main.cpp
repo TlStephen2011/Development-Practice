@@ -8,11 +8,11 @@ using namespace std;
 class TestCase
 {
   public:
-    int n = 0, k = 0;
+    int n, k;
     vector<int> times;
     void chooseStudents()
     {
-        n = rand() % 10 + 3;
+        n = rand() % 5 + 3;
     }
     void chooseThreshold()
     {
@@ -70,6 +70,7 @@ bool isDistinct(vector<TestCase> cases, int &pos)
             if (i != j && cases[i].n == cases[j].n)
             {
                 pos = i;
+                cout << "Is not distinct...replacing" << endl;
                 return false;
             }
         }
@@ -95,6 +96,7 @@ int main()
 {
     srand(time(0));
     int t = rand() % 5 + 1;
+    t = 5;
     cout << t << endl;
     vector<TestCase> cases;
     for (int i = 0; i < t; i++)
@@ -110,6 +112,9 @@ int main()
     while (!isDistinct(cases, index))
     {
         TestCase replacement;
+        replacement.chooseStudents();
+        replacement.chooseThreshold();
+        replacement.buildTimes();
         cases[index] = replacement;
     }
 
