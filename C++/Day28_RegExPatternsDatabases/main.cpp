@@ -33,48 +33,44 @@ class Details
         firstName = a;
         emailID = b;
     }
+};
 
-    bool operator<=(const Details &d)
+Details *lowerOf(Details *d1, Details *d2)
+{
+    if (d1->firstName.size() > d2->firstName.size())
     {
-        string smallerName;
-        if (this->firstName.size() > d.firstName.size())
+        for (int i = 0; i < d2->firstName.size(); i++)
         {
-            smallerName = d.firstName;
-        }
-        else
-        {
-            smallerName = this->firstName;
-        }
-
-        for (int i = 0; i < smallerName.size(); i++)
-        {
-            int a = this->firstName[i];
-            int b = d.firstName[i];
-
+            int a = int(d1->firstName[i]);
+            int b = int(d2->firstName[i]);
             if (a < b)
             {
-                return true;
+                return d1;
             }
             else if (a > b)
             {
-                return false;
+                return d2;
             }
         }
-
-        if (this->firstName.size() == d.firstName.size())
+    }
+    else
+    {
+        for (int i = 0; i < d1->firstName.size(); i++)
         {
-            return true;
-        }
-        else if (this->firstName.size() > d.firstName.size())
-        {
-            return false;
-        }
-        else
-        {
-            return true;
+            int a = int(d1->firstName[i]);
+            int b = int(d2->firstName[i]);
+            if (a < b)
+            {
+                return d1;
+            }
+            else if (a > b)
+            {
+                return d2;
+            }
         }
     }
-};
+    return d1->firstName.size() > d2->firstName.size() ? d2 : d1;
+}
 
 int main()
 {
@@ -100,23 +96,19 @@ int main()
         }
     }
 
-    while (database.size() > 0)
+    while (database.size() > 0) // might be no need for while
     {
         //find the lowest database member
         Details *d = database[database.size() - 1];
         int pos = database.size() - 1;
         for (int i = database.size() - 1; i >= 0; i--)
         {
-            if (database[i] <= d) //this i believe is returning true all the time
-            {
-                d = database[i];
-                pos = i;
-            }
+            //maybe try use a bubble sort using lowerOf function to sort the vector.
         }
         //display it
-        cout << d->firstName << endl;
+        cout << d->firstName << endl; // use loop to display sorted vector.
         //erase it
-        database.erase(database.begin() + pos);
+        database.erase(database.begin() + pos); // dont need to erase if vector is sorted.
     }
 
     return 0;
