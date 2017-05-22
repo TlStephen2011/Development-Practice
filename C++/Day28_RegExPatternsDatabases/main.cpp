@@ -1,30 +1,11 @@
-#include <algorithm>
-#include <bitset>
-#include <climits>
-#include <cmath>
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <ctime>
-#include <deque>
-#include <fstream>
 #include <iostream>
-#include <limits>
-#include <list>
-#include <map>
-#include <numeric>
-#include <queue>
-#include <set>
-#include <sstream>
-#include <stack>
 #include <string>
-#include <unordered_map>
 #include <vector>
-//started using atom editor
+// started using atom editor
 using namespace std;
 
 class Details {
- public:
+public:
   string firstName;
   string emailID;
   Details(string a, string b) {
@@ -70,6 +51,7 @@ int main() {
     database.push_back(d);
   }
 
+  // deleting elements of database if they do no have host == @gmail.com
   for (int i = database.size() - 1; i >= 0; i--) {
     int pos = database[i]->emailID.find("@");
     string host = database[i]->emailID.substr(pos + 1);
@@ -78,19 +60,28 @@ int main() {
     }
   }
 
-  while (database.size() > 0)  // might be no need for while
-  {
-    // find the lowest database member
-    Details *d = database[database.size() - 1];
-    int pos = database.size() - 1;
-    for (int i = database.size() - 1; i >= 0; i--) {
-      // maybe try use a bubble sort using lowerOf function to sort the vector.
+  // sort database using bubblesort
+  for (int i = 0; i < database.size(); i++) {
+    int numberOfSwaps = 0;
+
+    for (int j = 0; j < database.size() - 1; j++) {
+      Details *lower = lowerOf(database[j], database[j + 1]);
+      if (lower->emailID == database[j + 1]->emailID) {
+        Details *temp = database[j];
+        database[j] = database[j + 1];
+        database[j + 1] = temp;
+        numberOfSwaps++;
+      }
     }
-    // display it
-    cout << d->firstName << endl;  // use loop to display sorted vector.
-    // erase it
-    database.erase(database.begin() +
-                   pos);  // dont need to erase if vector is sorted.
+
+    if (numberOfSwaps == 0) {
+      break;
+    }
+  }
+
+  // displaying firstNames from database
+  for (int i = 0; i < database.size(); i++) {
+    cout << database[i]->firstName << endl;
   }
 
   return 0;
