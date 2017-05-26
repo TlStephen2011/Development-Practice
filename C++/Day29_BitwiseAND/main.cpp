@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-//need to use actual bits
+// need to use actual bits...
 using namespace std;
 
 int main() {
