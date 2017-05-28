@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1494896264 source:c:\users\tyrone stephen\desktop\c++\day17_moreexceptions\main.cpp
-	<cmath>
-	<iostream>
-	<exception>
-	<stdexcept>
-
